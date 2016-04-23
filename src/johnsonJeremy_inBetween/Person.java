@@ -10,7 +10,9 @@ import java.util.Scanner;
  */
 public class Person {
     
-  
+    /**
+     * Variables for Person Object
+     */
     private int playerChips; 
     private String playerName;   
     private int bet;
@@ -18,27 +20,42 @@ public class Person {
     private int count; 
     Scanner stdin = new Scanner(System.in); 
     
-    // Get Method for int player chips
+    /**
+     * getPlayerChips    method for returning the playerChips variable
+     * @return 
+     */
     public int getPlayerChips() {
         return playerChips;
     }
     
-    // Setter for player chips
+    /**
+     * setPlayerChips   Setter for playerChips variable
+     * @param playerChips 
+     */
     public void setPlayerChips(int playerChips) {
         this.playerChips = playerChips;
     }
     
-    // Get method fof Player Name
+    /**
+     * getPlayerName    Method for returning the playerName variable
+     * @return 
+     */
     public String getPlayerName() {
         return playerName;
     }
     
-    // Setter for player name
+    /**
+     * setPlayerName    Setter method for playerName
+     * @param playerName 
+     */
     public void setPlayerName(String playerName) {
         this.playerName = playerName;
     }
     
-    // Get method for player bet
+    /**
+     * getBet       Method for returning the variable field bet
+     * @return 
+     */
     public int getBet() {
         try {
             System.out.println("Place your bet");
@@ -52,29 +69,46 @@ public class Person {
         return bet;
     }
     
-    // setter for player bet
+    /**
+     * setBet   Setter method for bet
+     * @param bet 
+     */
     public void setBet(int bet) {
         this.bet = bet;
     }
     
-    // getter for boolean to indicate whether player is active in game 
+    /**
+     * isActivePlayer   Method for determining if a player is currently active
+     *                  returns value of either true or false
+     * @return 
+     */
     public boolean isActivePlayer() {
         if(playerChips <= 0)
             activePlayer = false; 
         return activePlayer;
     }
     
-    // setter for active player
+    /**
+     * setActive    Setter method for the activePlayer variable
+     * @param activePlayer 
+     */
     public void setActivePlayer(boolean activePlayer) {
         this.activePlayer = activePlayer;
     }
     
-    // Default constructor
+    /**
+     * Person   default person object constructor 
+     */
     public Person(){
         
     }
     
-    // Constructor with buyin and Name
+    /**
+     * Person   Person constructor taking in parameters of chips and name, chips
+     *          will serve as a buyin amount for a newly created player object
+     * @param chips
+     * @param name 
+     */
     public Person(int chips, String name){
         this.playerChips = chips; 
         this.playerName = name; 
@@ -82,7 +116,10 @@ public class Person {
     }
     
     /**
-     * Method will return a players current chip pile after the hand is over.
+     * settlerUp    Method will return a players current chip pile after the 
+     *              hand is over. In the house method, bet will be passed to 
+     *              this method as either a positive or negative number, based 
+     *              on the outcome of the hand. 
      * @return 
      */ 
     public int settleUp(int bet){
@@ -90,8 +127,8 @@ public class Person {
         return playerChips; 
     }
     /**
-     * String method that displays the various fields of Person object as a 
-     * string. 
+     * toString     Method that displays the various fields of Person object as 
+     *              a string. 
      * @return 
      */
     @Override
@@ -101,7 +138,7 @@ public class Person {
                 + '}';
     }
     /**
-     * REturns a count of current active players. 
+     * activePlayer Returns a count of current active players. 
      * @param count
      * @return 
      */
@@ -111,7 +148,8 @@ public class Person {
     
     
     /**
-     * Method compares chip piles of two players to determine a leaderboard. 
+     * comparesTo   Method compares chip piles of two players to determine a 
+     *              leader board. 
      * @param playerChips
      * @param playerChips1
      * @return 

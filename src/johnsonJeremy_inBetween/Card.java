@@ -22,20 +22,28 @@ public class Card {
     private String cardSuit; 
     private String faceValue; 
 
-    // Getter for my cardValue - will generate random card value for single card
-    // instances 
+    /**
+     * getCardValue Method for returning the value of a single card. Uses math
+     *              random class to set a face value for a card between 2 and 14
+     * @return 
+     */
     public int getCardValue() {
             cardValue = 2 +(int)(Math.random()*13); 
         return cardValue;
     }
 
-    // setter for card value
+    /**
+     * setCardValue Basic setter method for cardValue. Sets cardValue to 
+     *              cardValue in getCardValue method
+     * @param cardValue 
+     */
     public void setCardValue(int cardValue) {
         this.cardValue = cardValue;
     }
     /**
 
-     * GetFaceValue 
+     * GetFaceValue Uses the cardValue integer value to set a face value using 
+     *              a Character.toString method which converts decimal to ASCII
      * @return 
      */
     public String getFaceValue() {
@@ -72,7 +80,11 @@ public class Card {
         
         return faceValue;
     }
-
+    
+    /**
+     * Basic Setter for the faceValue field. 
+     * @param faceValue 
+     */
     public void setFaceValue(String faceValue) {
         
         this.faceValue = faceValue;

@@ -9,42 +9,63 @@ import java.util.LinkedList;
  * @author jeremyjohnson
  */
 public class Deck {
-    // varaibles
+    
+    /**
+     * Variables for Deck Class
+     */
     private Card cards = new Card();
     private final int DECKLENGTH = 52; 
     LinkedList<Card> deck = new LinkedList();
-   // private Card deck[] = new Card[DECKLENGTH];
     private final int indexer = 13; 
     
 
-    // getter for Cards
+    /**
+     * getCards Method used when the program needs to return a card
+     * @return 
+     */
+    
     public Card getCards() {
         return cards;
     }
-    // setter for Cards variable 
+    /**
+     * Setter   Method used for setting the card variable 
+     * @param cards 
+     */
     public void setCards(Card cards) {
         this.cards = cards;
     }
     
-    // getter for the deck 
+    /**
+     * getDeck  Method used when program needs to return a deck object
+     * @return 
+     */
     public LinkedList<Card> getDeck() {
-        
         return deck;
     }
     
-    // setter for my Deck, using card array as parameter
+    /**
+     * Setter Method for 
+     * @param deck 
+     */
     public void setDeck(LinkedList<Card> deck) {
         this.deck = deck;
     }
-
+    /**
+     * toString Method for printing out the card values for every card in the 
+     *          deck. 
+     * @return 
+     */
     @Override
     public String toString() {
         return "Deck{" + "deck=" + deck + '}';
     }
-    
- 
-    
-    // Default constructor for the deck class  
+
+    /**
+     * Deck()   Method is the default constructor for a deck. Builds all four 
+     *          suits for 2-A (ace being high). At the end of the deck's 
+     *          construction, it is passed to the shuffle deck method, to 
+     *          shuffleDeck method to shuffle contents
+     */
     public Deck() {
 
         for (int i =0 ; i < 13; i++){
@@ -60,27 +81,58 @@ public class Deck {
         } 
         
         for (int i =0 ; i < 13; i++){
-            deck.add(new Card(i+2, "Clubs"));         } 
+            deck.add(new Card(i+2, "Clubs"));         
+        } 
         shuffleDeck(deck); 
     }
- 
+    /**
+     * drawCard Method removes the top deck of the card. If the deck is empty 
+     *          it constructs a new (shuffled) deck, and draws the top card
+     * @return 
+     */
     public Card drawCard(){
         if (deck.isEmpty() != true){
             Card card1 = deck.removeFirst();
             return card1; 
         } 
-        else shuffleDeck(deck); 
-        Card card1 = deck.removeFirst();
+        else 
+           refillDeck(deck);
+           Card card1 = deck.removeFirst();
         return card1;
         
     }
 
-    // Uses collection import to shuffle and array of objects
+    /**
+     * shuffleDeck Method uses a built in method
+     * @param deck 
+     */
     static void shuffleDeck(LinkedList<Card> deck){ 
         Collections.shuffle(deck);
     }
-
     
+    /**
+     * refillDeck   Method for when the deck is empty, refills using the same 
+     *              method as in the constructor
+     * @param deck 
+     */
+    static void refillDeck(LinkedList<Card> deck){
+        for (int i =0 ; i < 13; i++){
+            deck.add(new Card(i+2, "Spades"));  
+        }
+        
+        for (int i =0 ; i < 13; i++){
+            deck.add(new Card(i+2, "Hearts"));  
+        } 
+        
+        for (int i =0 ; i < 13; i++){
+           deck.add(new Card(i+2, "Diamonds")); 
+        } 
+        
+        for (int i =0 ; i < 13; i++){
+            deck.add(new Card(i+2, "Clubs"));         
+        } 
+        shuffleDeck(deck);
+    }
 }   
     
 

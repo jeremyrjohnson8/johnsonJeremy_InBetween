@@ -55,7 +55,7 @@ public class House {
      * cards, get a player's bet, then draw a third card. 
      * @param player 
      */
-  /**  
+ 
     public void playHand (Person player){
         int bet;
         Card card1 = deck.drawCard();
@@ -68,7 +68,7 @@ public class House {
           //  card2 = deck.drawCard(); 
         }
         bet = player.getBet();
-        /**
+    
         Card card3 = deck.drawCard();
         System.out.println(card3.toString() + "  "  + card3.getCardValue());
         
@@ -86,12 +86,10 @@ public class House {
             player.settleUp(bet);
     }
     
-    //Default constructor for House Object 
+    /**
+     * House    Default house object constructor 
+     */
     public House() {
         
     }
 }
-
-}
-* */
-    }
